@@ -1,0 +1,21 @@
+﻿@inherits DittoView<NewsOverview>
+
+<h1>@Model.View.Title</h1>
+
+@foreach (NewsItem item in Model.View.NewsItems.Items)
+{
+    <section>
+        <h3><a href="@item.Url">@item.Title</a></h3>
+        <ul class="meta">
+            <li class="timestamp">@item.PublishDate.ToString("f")</li>
+        </ul>
+        @if (item.FirstImage != null)
+        {
+            <a href="@item.Url" class="image image-full"><img src="@item.FirstImage.Url?width=100&height=100&mode=crop" alt="@item.FirstImage.Title" /></a>
+        }
+        <br/>
+        <a href="@item.Url" class="button">Read more</a>
+    </section>
+}
+
+@Html.Partial("Pager", Model.View.NewsItems)

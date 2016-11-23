@@ -1,0 +1,22 @@
+﻿@inherits DittoView<Homepage>
+<h1>@Model.View.Title</h1>
+<p>@Model.View.Description</p>
+
+@if (Model.View.Hero != null)
+{
+    <p>
+        <img src="@Model.View.Hero.Url?width=300&height=300&mode=crop" alt="@Model.View.Hero.Title" />
+    </p>
+}
+
+@foreach (var link in Model.View.RelatedLinks.ToList())
+{
+    <a href="@link.Link" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Caption</a>
+}
+
+<ul>
+@foreach (var fruit in Model.View.Fruit.ToList())
+{
+    <li>@fruit</li>
+}
+</ul>
