@@ -8,6 +8,10 @@ namespace DittoSandbox.Web.Models
 {
     public class BaseModel
     {
+        public bool IsHomepage => DocumentTypeAlias?.ToLower() == "homepage"; 
+
+        public string DocumentTypeAlias { get; set; } 
+
         public string Url { get; set; }
 
         [Title]
