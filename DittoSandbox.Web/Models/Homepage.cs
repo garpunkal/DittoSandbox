@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web;
 using DittoSandbox.Web.Models.Processors;
 using DittoSandbox.Web.PropertyConverters.Models;
 using Our.Umbraco.Ditto;
-using Umbraco.Core.Models;
-using Umbraco.Core.Models.PublishedContent;
+using Umbraco.Web.Models;
 
 namespace DittoSandbox.Web.Models
 {
@@ -26,6 +21,10 @@ namespace DittoSandbox.Web.Models
         public RelatedLinks RelatedLinks { get; set; }
 
         [DelimitedString]
-        public IEnumerable<string> Fruit { get; set; }  
+        public IEnumerable<string> Fruit { get; set; }
+
+        public ImageCropDataSet PromotionalImage { get; set; }
+
+        public string PromotionalImageCrop(string cropAlias) => $"{PromotionalImage.Src}{PromotionalImage.GetCropUrl(cropAlias)}";
     }
 }

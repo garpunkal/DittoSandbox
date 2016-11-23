@@ -15,8 +15,18 @@
 }
 
 <ul>
-@foreach (var fruit in Model.View.Fruit.ToList())
-{
-    <li>@fruit</li>
-}
+    @foreach (var fruit in Model.View.Fruit.ToList())
+    {
+        <li>@fruit</li>
+    }
 </ul>
+
+
+@if (Model.View.PromotionalImage != null)
+{
+    <p>
+        <img src="@Model.View.PromotionalImageCrop("Default")" alt="" />
+        <img src="@Model.View.PromotionalImageCrop("Small")" alt="" />
+    </p>
+}
+

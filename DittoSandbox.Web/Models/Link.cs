@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Web;
-using Our.Umbraco.Ditto;
-
-using Umbraco.Core;
-using Umbraco.Core.Models;
-using Umbraco.Core.Models.PublishedContent;
+﻿using Our.Umbraco.Ditto;
 
 namespace DittoSandbox.Web.Models
 {

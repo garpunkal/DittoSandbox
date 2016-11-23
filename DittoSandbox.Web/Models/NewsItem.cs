@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using DittoSandbox.Web.Models.Processors;
 using Our.Umbraco.Ditto;
-using Umbraco.Core.Services;
 
 namespace DittoSandbox.Web.Models
 {
@@ -34,6 +33,9 @@ namespace DittoSandbox.Web.Models
         [DittoCache(CacheDuration = 300)]
         [UmbracoProperty]
         [UmbracoPicker]
-        public Link PromotedPage { get; set; } 
+        public Link PromotedPage { get; set; }
+
+        [UmbracoProperty]
+        public string Attachment { get; set; } 
     }
 }
