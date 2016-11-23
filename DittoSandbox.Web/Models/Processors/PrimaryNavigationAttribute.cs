@@ -9,10 +9,12 @@ namespace DittoSandbox.Web.Models.Processors
     public class PrimaryNavigationAttribute : DittoProcessorAttribute
     {
         public string HomepageAlias { get; set; }
+        public bool IncludeHomepage { get; set; }
 
-        public PrimaryNavigationAttribute(string homepageAlias = "homepage")
+        public PrimaryNavigationAttribute(string homepageAlias = "homepage", bool includeHomepage = false)
         {
             HomepageAlias = homepageAlias;
+            IncludeHomepage = includeHomepage;
         }
 
         public override object ProcessValue()
@@ -21,6 +23,14 @@ namespace DittoSandbox.Web.Models.Processors
             if (home == null) return null;
 
             var items = new List<TreeNode>();
+
+            if (IncludeHomepage)
+                items.Add(new TreeNode
+                {
+                    Name = home.Name,
+                    Url = home.Url
+                });
+
             foreach (var item in home.Children.Where(x => x.IsVisible()))
             {
                 items.Add(new TreeNode

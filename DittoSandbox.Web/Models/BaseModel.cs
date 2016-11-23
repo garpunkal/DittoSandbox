@@ -7,7 +7,7 @@ namespace DittoSandbox.Web.Models
 {
     public class BaseModel
     {
-        [PrimaryNavigation]
+        [PrimaryNavigation("homepage", true)]
         public IEnumerable<TreeNode> NavItems { get; set; } 
     }
 }
