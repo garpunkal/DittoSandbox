@@ -14,9 +14,14 @@
 <div>
     @Html.Partial("PrimaryNav", Model.View.NavItems)
     <h1>@Model.View.Title</h1>
-    <p>@Model.View.PublishDate.ToString("f")</p>
-
+    <p>
+        <b>Url:</b> @Model.View.Url<br/>
+        <b>Created / Published Date:</b> @Model.View.PublishDate.ToString("f")
+    </p>
+    <hr/>
     @RenderBody()
+    
+  
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ﻿@model PagedCollection
 @if (Model.TotalPages > 1)
 {
-    <p>
+    <p><b>Page: </b>
         @for (var p = 1; p <= Model.TotalPages; p++)
         {
             if (p == Model.CurrentPage)
