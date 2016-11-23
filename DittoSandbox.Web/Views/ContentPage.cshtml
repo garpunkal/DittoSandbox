@@ -6,8 +6,8 @@
     <h1>@Model.View.Title</h1>
     <p>@Model.View.PublishDate.ToString("f")</p>
     <p>@Model.View.BodyText</p>
-    
-    
+
+
     @if (Model.View.Departments != null)
     {
         <ul>
@@ -17,7 +17,7 @@
             }
         </ul>
     }
-   
+
     @if (Model.View.RelatedInternalPages != null)
     {
         <ul>
@@ -25,6 +25,14 @@
             {
                 <li><a href="@link.Url" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Title</a></li>
             }
+        </ul>
+    }
+
+
+    @if (Model.View.PromotedPage != null)
+    {
+        <ul>
+            <li><a href="@Model.View.PromotedPage.Url" @(Model.View.PromotedPage.NewWindow ? " target='_blank'" : string.Empty)>@Model.View.PromotedPage.Title</a></li>
         </ul>
     }
 </section>

@@ -24,6 +24,9 @@ namespace DittoSandbox.Web.Models
 
         [UmbracoProperty]
         [UmbracoPicker]
-        public IEnumerable<Link> RelatedInternalPages { get; set; } 
+        public IEnumerable<Link> RelatedInternalPages { get; set; }
+        
+        [UmbracoProperty, UmbracoPicker]
+        public Link PromotedPage { get; set; } 
     }
 }
