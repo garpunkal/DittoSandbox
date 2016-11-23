@@ -3,13 +3,22 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<section>
+<div class="propertyType">
+    <h2>Richtext Editor</h2>
+
     <p>@Model.View.BodyText</p>
+</div>
+
+<div class="propertyType">
+    <h2>Multi Media Picker</h2>
     @foreach (var image in Model.View.Images)
     {
-        <img src="@image.Url?width=300&height=300&mode=crop" alt="@image.Title"/>
+        <img src="@image.Url?width=300&height=300&mode=crop" alt="@image.Title" />
     }
-    
+</div>
+
+<div class="propertyType">
+    <h2>Tags</h2>
     @if (Model.View.Tags != null)
     {
         <ul>
@@ -19,13 +28,21 @@
             }
         </ul>
     }
+</div>
+
+<div class="propertyType">
+    <h2>File Upload</h2>
     @if (Model.View.Attachment != null)
     {
         <p><a href="@Model.View.Attachment">@Model.View.Attachment</a></p>
     }
-   
+</div>
+
+<div class="propertyType">
+    <h2>Content Picker</h2>
+
     @if (Model.View.PromotedPage != null)
     {
         <a href="@Model.View.PromotedPage.Url">@Model.View.PromotedPage.Title</a>
     }
-</section>
+</div>

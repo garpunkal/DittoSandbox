@@ -3,17 +3,24 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-@foreach (NewsItem item in Model.View.NewsItems.Items)
-{
-    <section style="border:1px solid #000; padding: 5px; margin-bottom: 5px; ">
-        <a href="@item.Url">@item.Title</a>
-        <p>@item.PublishDate.ToString("f")</p>
-        @if (item.FirstImage != null)
-        {
-            <a href="@item.Url" class="image image-full"><img src="@item.FirstImage.Url?width=100&height=100&mode=crop" alt="@item.FirstImage.Title" /></a>
-        }
-        <br/>
-        <a href="@item.Url" class="button">Read more</a>
-    </section>
-}
-@Html.Partial("Pager", Model.View.NewsItems)
+<div class="propertyType">
+    <h2>News Listing</h2>
+    <p>This uses a processor not a mapped property from Umbraco. </p>
+   
+    @foreach (NewsItem item in Model.View.NewsItems.Items)
+    {
+        <div class="newsSnippet">
+            <a href="@item.Url">@item.Title</a>
+            <p>@item.PublishDate.ToString("f")</p>
+            @if (item.FirstImage != null)
+            {
+                <a href="@item.Url" class="image image-full"><img src="@item.FirstImage.Url?width=100&height=100&mode=crop" alt="@item.FirstImage.Title" /></a>
+            }
+            <br />
+            <a href="@item.Url" class="button">Read more</a>
+        </div>
+    }
+    @Html.Partial("Pager", Model.View.NewsItems)
+</div>
+
+    

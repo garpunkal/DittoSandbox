@@ -8,13 +8,36 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta name="theme-color" content="#1FBBEC">
     <title>Ditto Sandbox</title>
-  
+    <style type="text/css">
+        body{ 
+           font-family:sans-serif;
+        }
+         div.attributes { 
+             width:90%;
+             border:2px solid #000;
+             margin-bottom:10px;
+             padding: 5px;
+         }
+         div.propertyType { 
+             width:90%;
+             border:1px solid #333;
+              margin-bottom:10px;
+             padding: 5px;
+         }
+         div.newsSnippet{
+             width:90%;
+             background-color: #efefef;
+             margin-bottom:10px;
+             padding: 5px;
+
+         }
+    </style>
 </head>
 <body>
 <div>
     @Html.Partial("PrimaryNav", Model.View.PrimaryNavItems)
     <h1>@Model.View.Title</h1>
-    <p>
+    <div class="attributes">
         <b>Url:</b> @Model.View.Url<br />
         <b>Created / Published Date:</b> @Model.View.PublishDate.ToString("f")<br/>
         @Html.Partial("SecondaryNav", Model.View.SecondaryNavItems)<br/>
@@ -23,8 +46,8 @@
         {
             @Html.Partial("Breadcrumbs", Model.View.BreadcrumbItems)
         }
-    </p>
-    <hr/>
+    </div>
+    
     @RenderBody()
     
   

@@ -3,11 +3,14 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<section>
-  
+<div class="propertyType">
+    <h2>Richtext Editor</h2>
+
     <p>@Model.View.BodyText</p>
+</div>
 
-
+<div class="propertyType">
+    <h2>Dropdown Multiple</h2>
     @if (Model.View.Departments != null)
     {
         <ul>
@@ -17,7 +20,10 @@
             }
         </ul>
     }
+</div>
 
+<div class="propertyType">
+    <h2>Multinode Treepicker</h2>
     @if (Model.View.RelatedInternalPages != null)
     {
         <ul>
@@ -27,12 +33,14 @@
             }
         </ul>
     }
+</div>
 
-
+<div class="propertyType">
+    <h2>Content Picker</h2>
     @if (Model.View.PromotedPage != null)
     {
         <ul>
             <li><a href="@Model.View.PromotedPage.Url" @(Model.View.PromotedPage.NewWindow ? " target='_blank'" : string.Empty)>@Model.View.PromotedPage.Title</a></li>
         </ul>
     }
-</section>
+</div>

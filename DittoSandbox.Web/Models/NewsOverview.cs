@@ -6,7 +6,7 @@ namespace DittoSandbox.Web.Models
     public class NewsOverview : BaseModel
     {
         [DittoCache(CacheDuration = 300, CacheKeyBuilderType = typeof(NewsKeyBuilder))]
-        [News]
+        [News("homepage", "newsOverview", "newsItem", "publishDate", 2)]
         public PagedCollection<NewsItem> NewsItems { get; set; }
     }
 }

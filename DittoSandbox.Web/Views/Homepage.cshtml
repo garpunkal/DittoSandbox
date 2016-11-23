@@ -3,42 +3,55 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<p>@Model.View.Description</p>
+<div class="propertyType">
+    <h2>Richtext Editor</h2>
+    <p>@Model.View.Description</p>
+</div>
 
-@if (Model.View.Hero != null)
-{
-    <p>
-        <img src="@Model.View.Hero.Url?width=300&height=300&mode=crop" alt="@Model.View.Hero.Title" />
-    </p>
-}
+<div class="propertyType">
+    <h2>Media Picker</h2>
+    @if (Model.View.Hero != null)
+    {
+        <p>
+            <img src="@Model.View.Hero.Url?width=300&height=300&mode=crop" alt="@Model.View.Hero.Title" />
+        </p>
+    }
+</div>
+<div class="propertyType">
 
-@if (Model.View.RelatedLinks != null)
-{
-    <ul>
-        @foreach (var link in Model.View.RelatedLinks.ToList())
-        {
-            <li><a href="@link.Link" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Caption</a></li>
-        }
-    </ul>
-}
+    <h2>Related Links</h2>
+    @if (Model.View.RelatedLinks != null)
+    {
+        <ul>
+            @foreach (var link in Model.View.RelatedLinks.ToList())
+                {
+                <li><a href="@link.Link" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Caption</a></li>
+            }
+        </ul>
+    }
+</div>
 
+<div class="propertyType">
+    <h2>Checkbox List</h2>
+    @if (Model.View.Fruit != null)
+    {
+        <ul>
+            @foreach (var fruit in Model.View.Fruit.ToList())
+                {
+                <li>@fruit</li>
+            }
+        </ul>
+    }
+</div>
 
-@if (Model.View.Fruit != null)
-{
-    <ul>
-        @foreach (var fruit in Model.View.Fruit.ToList())
-        {
-            <li>@fruit</li>
-        }
-    </ul>
-}
-
-
-@if (Model.View.PromotionalImage != null)
-{
-    <p>
-        <img src="@Model.View.PromotionalImageCrop("Default")" alt="" />
-        <img src="@Model.View.PromotionalImageCrop("Small")" alt="" />
-    </p>
-}
+<div class="propertyType">
+    <h2>Image Cropper</h2>
+    @if (Model.View.PromotionalImage != null)
+    {
+        <p>
+            <img src="@Model.View.PromotionalImageCrop("Default")" alt="" />
+            <img src="@Model.View.PromotionalImageCrop("Small")" alt="" />
+        </p>
+    }
+</div>
 
