@@ -20,6 +20,7 @@ namespace DittoSandbox.Web.Models.Processors
             {
                 items.Add(new TreeNode
                 {
+                    Id = item.Id,
                     Name = item.Name,
                     Url = item.Url
                 });

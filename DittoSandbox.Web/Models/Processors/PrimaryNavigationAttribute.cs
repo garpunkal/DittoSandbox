@@ -28,6 +28,7 @@ namespace DittoSandbox.Web.Models.Processors
             if (IncludeHomepage)
                 items.Add(new TreeNode
                 {
+                    Id = home.Id,
                     Name = home.Name,
                     Url = home.Url
                 });
@@ -36,6 +37,7 @@ namespace DittoSandbox.Web.Models.Processors
             {
                 items.Add(new TreeNode
                 {
+                    Id = item.Id,
                     Name = item.Name,
                     Url = item.Url
                 });

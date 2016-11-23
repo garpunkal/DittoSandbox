@@ -18,6 +18,7 @@ namespace DittoSandbox.Web.Models.Processors
                 .AncestorsOrSelf()
                 .Select(ancestor => new TreeNode
                 {
+                    Id = ancestor.Id,
                     Name = ancestor.Name,
                     Url = ancestor.TemplateId > 0 ? ancestor.Url : string.Empty,
                     Current = currentPage.Id == ancestor.Id

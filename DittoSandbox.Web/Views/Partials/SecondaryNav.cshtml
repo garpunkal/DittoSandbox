@@ -5,7 +5,7 @@
     foreach (var item in Model)
     {
         <a href="@item.Url">@item.Name</a>
-        if (item.Url != Model.Last().Url)
+        if (item.Id != Model.Last().Id)
         {
             <text> | </text>
         }
