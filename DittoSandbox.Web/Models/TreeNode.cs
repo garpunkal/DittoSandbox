@@ -9,5 +9,7 @@ namespace DittoSandbox.Web.Models
         public string ImageUrl { get; set; }
         public List<TreeNode> Children { get; set; }
         public bool NewWindow { get; set; }
+
+        public bool Current { get; set; } 
     }
 }

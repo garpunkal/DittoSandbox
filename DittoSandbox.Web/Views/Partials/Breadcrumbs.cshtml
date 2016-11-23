@@ -1,0 +1,16 @@
+﻿@model IEnumerable<TreeNode>
+@if (Model.Any())
+{
+    <b>Breadcrumbs: </b>
+    foreach (var item in Model)
+    {
+        if (item.Current)
+        {
+            <b>@item.Name</b>
+        }
+        else
+        {
+            <a href="@item.Url">@item.Name</a> <text>></text>
+        }
+    }
+}

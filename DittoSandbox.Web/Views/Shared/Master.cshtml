@@ -17,7 +17,8 @@
     <p>
         <b>Url:</b> @Model.View.Url<br />
         <b>Created / Published Date:</b> @Model.View.PublishDate.ToString("f")<br/>
-        @Html.Partial("SecondaryNav", Model.View.SecondaryNavItems)
+        @Html.Partial("SecondaryNav", Model.View.SecondaryNavItems)<br/>
+        @Html.Partial("Breadcrumbs", Model.View.BreadcrumbItems)
     </p>
     <hr/>
     @RenderBody()

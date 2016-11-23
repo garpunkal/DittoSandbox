@@ -24,5 +24,8 @@ namespace DittoSandbox.Web.Models
         [SecondaryNavigation]
         public IEnumerable<TreeNode> SecondaryNavItems { get; set; }
 
+        [DittoCache(CacheDuration = 300)]
+        [BreadcrumbNavigation]
+        public IEnumerable<TreeNode> BreadcrumbItems { get; set; }
     }
 }
