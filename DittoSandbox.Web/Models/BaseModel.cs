@@ -8,15 +8,15 @@ namespace DittoSandbox.Web.Models
 {
     public class BaseModel
     {
-        [Title]
-        public string Title { get; set; }
-
-        [PublishDate]
-        public DateTime PublishDate { get; set; }
-        
         public string Url { get; set; }
 
+        [Title]
+        public string Title { get; set; }
+        
+        [PublishDate]
+        public DateTime PublishDate { get; set; }
 
+        [DittoCache(CacheDuration = 300)]
         [PrimaryNavigation("homepage", true)]
         public IEnumerable<TreeNode> NavItems { get; set; } 
     }

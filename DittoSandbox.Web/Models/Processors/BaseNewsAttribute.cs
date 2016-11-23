@@ -10,18 +10,18 @@ namespace DittoSandbox.Web.Models.Processors
 {
     public abstract class BaseNewsAttribute : DittoProcessorAttribute
     {
-        protected IEnumerable<IPublishedContent> GetNews()
+        protected IEnumerable<IPublishedContent> GetNews(string homepageAlias, string newsOverviewAlias, string newsItemAlias, string publishDateAlias)
         {
             var content = Value as IPublishedContent;
             if (content == null) return Enumerable.Empty<IPublishedContent>();
 
-            var homepage = content.AncestorsOrSelf(1).First();
-            var newsArchive = homepage.Children.FirstOrDefault(x => x.DocumentTypeAlias == "newsOverview");
+            var homepage = content.AncestorsOrSelf(homepageAlias).First();
+            var newsArchive = homepage.Children.FirstOrDefault(x => x.DocumentTypeAlias == newsOverviewAlias);
             if (newsArchive == null) return Enumerable.Empty<IPublishedContent>();
 
             return newsArchive.Children
-                .Where(x => x.DocumentTypeAlias == "newsItem")
-                .OrderByDescending(x => x.Get<DateTime>("publishDate"))
+                .Where(x => x.DocumentTypeAlias == newsItemAlias)
+                .OrderByDescending(x => x.Get<DateTime>(publishDateAlias))
                 .ThenByDescending(x => x.CreateDate);
         }
     }

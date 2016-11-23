@@ -9,7 +9,6 @@ namespace DittoSandbox.Web.Models
 {
     public class NewsItem : BaseModel
     {
-
         [DittoCache(CacheDuration = 300)]
         [UmbracoProperty]
         [UmbracoPicker]
@@ -20,7 +19,6 @@ namespace DittoSandbox.Web.Models
 
         public HtmlString BodyText { get; set; }
         
-
         [DelimitedString]
         public IEnumerable<string> Tags { get; set; }
 

@@ -9,7 +9,6 @@ namespace DittoSandbox.Web.Models
 {
     public class ContentPage : BaseModel
     {
-       
         public HtmlString BodyText { get; set; }
     
         [DelimitedString]

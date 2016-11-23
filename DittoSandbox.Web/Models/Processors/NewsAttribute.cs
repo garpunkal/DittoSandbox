@@ -11,26 +11,45 @@ namespace DittoSandbox.Web.Models.Processors
     [DittoProcessorMetaData(ContextType = typeof(PaginationContext))]
     public class NewsAttribute : BaseNewsAttribute
     {
+        public string HomepageAlias { get; set; }
+        public string NewsOverviewAlias { get; set; }
+        public string NewsItemAlias { get; set; }
+        public string PublishDateAlias { get; set; }
+        public int PageSize { get; set; }
+
+        public NewsAttribute(
+            string homepageAlias = "homepage",
+            string newsOverviewAlias = "newsOverview",
+            string newsItemAlias = "newsItem",
+            string publishDateAlias = "publishDate",
+            int pageSize = 10)
+        {
+            HomepageAlias = homepageAlias;
+            NewsOverviewAlias = newsOverviewAlias;
+            NewsItemAlias = newsItemAlias;
+            PublishDateAlias = publishDateAlias;
+            PageSize = pageSize;
+        }
+
+
         public override object ProcessValue()
         {
-            var currentPage = ((PaginationContext)Context).PageNumber;
-            var pageSize = 2;
-
-            var items = GetNews().ToList();
+            var pageNumber = ((PaginationContext)Context).PageNumber;
+            var items = GetNews(HomepageAlias, NewsOverviewAlias, NewsItemAlias, PublishDateAlias).ToList();
             var totalItems = items.Count;
-            var totalPages = (long)Math.Ceiling(totalItems / (decimal)pageSize);
+            var totalPages = (long)Math.Ceiling(totalItems / (decimal)PageSize);
 
-            currentPage = Math.Max(1, Math.Min(currentPage, totalPages));
+            pageNumber = Math.Max(1, Math.Min(pageNumber, totalPages));
 
             var pagedItems = items
-                .Skip((int)(currentPage - 1) * pageSize)
-                .Take(pageSize)
+                .Skip((int)(pageNumber - 1) * PageSize)
+                .Take(PageSize)
                 .As<NewsItem>();
 
             return new PagedCollection<NewsItem>
             {
-                CurrentPage = currentPage,
-                PageSize = pageSize,
+                CurrentPage = pageNumber,
+                PageSize = PageSize,
                 TotalItems = totalItems,
                 TotalPages = totalPages,
                 Items = pagedItems
