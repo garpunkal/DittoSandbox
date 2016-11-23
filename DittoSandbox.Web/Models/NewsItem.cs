@@ -9,8 +9,6 @@ namespace DittoSandbox.Web.Models
 {
     public class NewsItem : BaseModel
     {
-        [Title]
-        public string Title { get; set; }
 
         [DittoCache(CacheDuration = 300)]
         [UmbracoProperty]
@@ -21,11 +19,7 @@ namespace DittoSandbox.Web.Models
         public Image FirstImage => Images.FirstOrDefault();
 
         public HtmlString BodyText { get; set; }
-
-        [PublishDate]
-        public DateTime PublishDate { get; set; }
-
-        public string Url { get; set; }
+        
 
         [DelimitedString]
         public IEnumerable<string> Tags { get; set; }

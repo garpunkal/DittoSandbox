@@ -9,9 +9,6 @@ namespace DittoSandbox.Web.Models
 {
     public class Homepage : BaseModel
     {
-        [Title]
-        public string Title { get; set; }
-
         public IHtmlString Description { get; set; }
 
         [UmbracoProperty]
