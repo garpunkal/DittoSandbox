@@ -1,0 +1,19 @@
+﻿@inherits DittoView<BaseModel>
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="theme-color" content="#1FBBEC">
+    <title>Ditto Sandbox</title>
+  
+</head>
+<body>
+<div>
+    @Html.Partial("PrimaryNav", Model.View.NavItems)
+    @RenderBody()
+</div>
+</body>
+</html>

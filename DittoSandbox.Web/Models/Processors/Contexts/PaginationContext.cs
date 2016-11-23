@@ -6,8 +6,8 @@ using Our.Umbraco.Ditto;
 
 namespace DittoSandbox.Web.Models.Processors.Contexts
 {
-    public class CurrentPageContext : DittoProcessorContext
+    public class PaginationContext : DittoProcessorContext
     {
-        public long CurrentPage { get; set; }
+        public long PageNumber { get; set; }
     }
 }

@@ -13,9 +13,9 @@ namespace DittoSandbox.Web.Controllers
     {
         public ActionResult Index(RenderModel model, long p = 1)
         {
-            RegisterProcessorContext(new CurrentPageContext
+            RegisterProcessorContext(new PaginationContext
             {
-                CurrentPage = p
+                PageNumber = p
             });
 
             return CurrentView(model);

@@ -338,6 +338,8 @@
     <Content Include="Views\NewsOverview.cshtml" />
     <Content Include="Views\Partials\Pager.cshtml" />
     <Content Include="Views\ContentPage.cshtml" />
+    <Content Include="Views\Partials\PrimaryNav.cshtml" />
+    <Content Include="Views\Shared\Master.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -387,12 +389,14 @@
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\PagedCollection.cs" />
     <Compile Include="Models\Processors\BaseNewsAttribute.cs" />
-    <Compile Include="Models\Processors\Contexts\CurrentPageContext.cs" />
+    <Compile Include="Models\Processors\Contexts\PaginationContext.cs" />
+    <Compile Include="Models\Processors\PrimaryNavigationAttribute.cs" />
     <Compile Include="Models\Processors\NewsAttribute.cs" />
     <Compile Include="Models\Processors\PublishDateAttribute.cs" />
     <Compile Include="Models\Processors\DelimitedStringAttribute.cs" />
     <Compile Include="Models\Processors\TitleAttribute.cs" />
     <Compile Include="Models\Processors\UrlTargetAttribute.cs" />
+    <Compile Include="Models\TreeNode.cs" />
     <Compile Include="PropertyConverters\RelatedLinksPropertyConverter.cs" />
     <Compile Include="PropertyConverters\Models\RelatedLink.cs" />
     <Compile Include="PropertyConverters\Models\RelatedLinkBase.cs" />

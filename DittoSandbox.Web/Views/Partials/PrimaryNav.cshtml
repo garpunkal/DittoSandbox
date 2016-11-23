@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TreeNode>
+@if (Model.Any())
+{
+    <div class="mm-wrap">
+        <ul class="mm-nav">
+            @foreach (var item in Model) 
+            {
+                <li><a href="@item.Url">@item.Name</a></li>
+            }
+        </ul>
+    </div>
+}

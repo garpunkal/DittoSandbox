@@ -8,12 +8,12 @@ using Our.Umbraco.Ditto;
 
 namespace DittoSandbox.Web.Models.Processors
 {
-    [DittoProcessorMetaData(ContextType = typeof(CurrentPageContext))]
+    [DittoProcessorMetaData(ContextType = typeof(PaginationContext))]
     public class NewsAttribute : BaseNewsAttribute
     {
         public override object ProcessValue()
         {
-            var currentPage = ((CurrentPageContext)Context).CurrentPage;
+            var currentPage = ((PaginationContext)Context).PageNumber;
             var pageSize = 2;
 
             var items = GetNews().ToList();
