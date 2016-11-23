@@ -379,6 +379,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HomepageController.cs" />
     <Compile Include="Controllers\NewsOverviewController.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\PublishedContentExtensions.cs" />

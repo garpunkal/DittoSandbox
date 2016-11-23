@@ -23,5 +23,8 @@ namespace DittoSandbox.Web.Models
         public ImageCropDataSet PromotionalImage { get; set; }
 
         public string PromotionalImageCrop(string cropAlias) => $"{PromotionalImage.Src}{PromotionalImage.GetCropUrl(cropAlias)}";
+
+        [DittoIgnore]
+        public string ControllerAction { get; set; } 
     }
 }
