@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DittoSandbox.Web.Models;
+using Our.Umbraco.Ditto;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
