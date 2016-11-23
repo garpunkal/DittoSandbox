@@ -1,4 +1,5 @@
-﻿using Our.Umbraco.Ditto;
+﻿using DittoSandbox.Web.Models.Processors;
+using Our.Umbraco.Ditto;
 
 namespace DittoSandbox.Web.Models
 {
@@ -8,5 +9,8 @@ namespace DittoSandbox.Web.Models
         public string Title { get; set; }
 
         public string Url { get; set; }
+
+        [UrlTarget]
+        public bool NewWindow { get; set; } 
     }
 }

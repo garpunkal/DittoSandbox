@@ -21,6 +21,9 @@ namespace DittoSandbox.Web.Models
 
         [DelimitedString]
         public IEnumerable<string> Departments { get; set; }
-   
+
+        [UmbracoProperty]
+        [UmbracoPicker]
+        public IEnumerable<Link> RelatedInternalPages { get; set; } 
     }
 }

@@ -392,6 +392,7 @@
     <Compile Include="Models\Processors\PublishDateAttribute.cs" />
     <Compile Include="Models\Processors\DelimitedStringAttribute.cs" />
     <Compile Include="Models\Processors\TitleAttribute.cs" />
+    <Compile Include="Models\Processors\UrlTargetAttribute.cs" />
     <Compile Include="PropertyConverters\RelatedLinksPropertyConverter.cs" />
     <Compile Include="PropertyConverters\Models\RelatedLink.cs" />
     <Compile Include="PropertyConverters\Models\RelatedLinkBase.cs" />

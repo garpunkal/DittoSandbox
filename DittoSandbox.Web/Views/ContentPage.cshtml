@@ -18,4 +18,13 @@
         </ul>
     }
    
+    @if (Model.View.RelatedInternalPages != null)
+    {
+        <ul>
+            @foreach (var link in Model.View.RelatedInternalPages.ToList())
+            {
+                <li><a href="@link.Url" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Title</a></li>
+            }
+        </ul>
+    }
 </section>
