@@ -4,22 +4,22 @@
 
 <section>
     <h1>@Model.View.Title</h1>
-    <ul class="meta">
-        <li class="timestamp">@Model.View.PublishDate.ToString("f")</li>
-    </ul>
+    <p>@Model.View.PublishDate.ToString("f")</p>
     <p>@Model.View.BodyText</p>
     @foreach (var image in Model.View.Images)
     {
-        <img src="@image.Url?width=300&height=300&mode=crop" alt="@image.Title]
-            "/>
+        <img src="@image.Url?width=300&height=300&mode=crop" alt="@image.Title"/>
     }
-
-    <ul>
-        @foreach (var tag in Model.View.Tags)
-        {
-            <li>@tag</li>
-        }
-    </ul>
+    
+    @if (Model.View.Tags != null)
+    {
+        <ul>
+            @foreach (var tag in Model.View.Tags)
+            {
+                <li>@tag</li>
+            }
+        </ul>
+    }
     @if (Model.View.Attachment != null)
     {
         <p><a href="@Model.View.Attachment">@Model.View.Attachment</a></p>
@@ -29,7 +29,4 @@
     {
         <a href="@Model.View.PromotedPage.Url">@Model.View.PromotedPage.Title</a>
     }
-    
-    <br/> 
-   
 </section>

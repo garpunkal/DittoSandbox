@@ -337,6 +337,7 @@
     <Content Include="Views\NewsItem.cshtml" />
     <Content Include="Views\NewsOverview.cshtml" />
     <Content Include="Views\Partials\Pager.cshtml" />
+    <Content Include="Views\ContentPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -379,6 +380,7 @@
     <Compile Include="Extensions\PublishedContentExtensions.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\ContentPage.cs" />
     <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\NewsOverview.cs" />
     <Compile Include="Models\Homepage.cs" />

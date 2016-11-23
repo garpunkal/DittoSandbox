@@ -9,17 +9,26 @@
     </p>
 }
 
-@foreach (var link in Model.View.RelatedLinks.ToList())
+@if (Model.View.RelatedLinks != null)
 {
-    <a href="@link.Link" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Caption</a>
+    <ul>
+        @foreach (var link in Model.View.RelatedLinks.ToList())
+        {
+            <li><a href="@link.Link" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Caption</a></li>
+        }
+    </ul>
 }
 
-<ul>
-    @foreach (var fruit in Model.View.Fruit.ToList())
-    {
-        <li>@fruit</li>
-    }
-</ul>
+
+@if (Model.View.Fruit != null)
+{
+    <ul>
+        @foreach (var fruit in Model.View.Fruit.ToList())
+        {
+            <li>@fruit</li>
+        }
+    </ul>
+}
 
 
 @if (Model.View.PromotionalImage != null)
