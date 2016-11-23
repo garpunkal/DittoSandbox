@@ -8,8 +8,8 @@ namespace DittoSandbox.Web.Models
 {
     public class BaseModel
     {
-        public bool IsHomepage => DocumentTypeAlias?.ToLower() == "homepage"; 
-
+        public int Id { get; set; } 
+        
         public string DocumentTypeAlias { get; set; } 
 
         public string Url { get; set; }
@@ -31,5 +31,7 @@ namespace DittoSandbox.Web.Models
         [DittoCache(CacheDuration = 300)]
         [BreadcrumbNavigation]
         public IEnumerable<TreeNode> BreadcrumbItems { get; set; }
+
+        public bool IsHomepage => DocumentTypeAlias?.ToLower() == "homepage";
     }
 }

@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<TreeNode>
 @if (Model.Any())
 {
-    <b>Secondary Navigation: </b>
     foreach (var item in Model)
     {
         <a href="@item.Url">@item.Name</a>

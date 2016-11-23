@@ -28,6 +28,8 @@ namespace DittoSandbox.Web.Models
         public Link PromotedPage { get; set; }
 
         [UmbracoProperty]
-        public string Attachment { get; set; } 
+        public string Attachment { get; set; }
+
+        public string Description { get; set; }
     }
 }

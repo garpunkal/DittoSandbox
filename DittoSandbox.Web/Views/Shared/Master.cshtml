@@ -9,47 +9,82 @@
     <meta name="theme-color" content="#1FBBEC">
     <title>Ditto Sandbox</title>
     <style type="text/css">
-        body{ 
-           font-family:sans-serif;
+        body {
+            font-family: sans-serif;
         }
-         div.attributes { 
-             width:90%;
-             border:2px solid #000;
-             margin-bottom:10px;
-             padding: 5px;
-         }
-         div.propertyType { 
-             width:90%;
-             border:1px solid #333;
-              margin-bottom:10px;
-             padding: 5px;
-         }
-         div.newsSnippet{
-             width:90%;
-             background-color: #efefef;
-             margin-bottom:10px;
-             padding: 5px;
 
-         }
+        div.primaryNavigation { 
+            width:100%;
+            background-color: #efefef;
+            padding:5px;
+        }
+
+        div.attributes {
+            width: 90%;
+            border: 2px solid #000;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+            div.attributes table {
+                width: 100%;
+            }
+
+                div.attributes table th {
+                    width: 20%;
+                    text-align: left;
+                    background-color: #efefef;
+                }
+
+        div.propertyType {
+            width: 90%;
+            border: 1px solid #333;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        div.newsSnippet {
+            width: 98%;
+            background-color: #efefef;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
-<div>
-    @Html.Partial("PrimaryNav", Model.View.PrimaryNavItems)
-    <h1>@Model.View.Title</h1>
-    <div class="attributes">
-        <b>Url:</b> @Model.View.Url<br />
-        <b>Created / Published Date:</b> @Model.View.PublishDate.ToString("f")<br/>
-        @Html.Partial("SecondaryNav", Model.View.SecondaryNavItems)<br/>
-        @if (!Model.View.IsHomepage)
-        {
-            @Html.Partial("Breadcrumbs", Model.View.BreadcrumbItems)
-        }
+    <div>
+        <div class="primaryNavigation">
+            @Html.Partial("PrimaryNav", Model.View.PrimaryNavItems)
+        </div>
+        <h1>@Model.View.Title</h1>
+        <div class="attributes">
+            <table>
+                <tr>
+                    <th>ID:</th>
+                    <td>@Model.View.Id</td>
+                </tr>
+                <tr>
+                    <th>Url:</th>
+                    <td>@Model.View.Url</td>
+                </tr>
+                <tr>
+                    <th>Date:</th>
+                    <td>@Model.View.PublishDate.ToString("f")</td>
+                </tr>
+                <tr>
+                    <th>Secondary Nav:</th>
+                    <td>@Html.Partial("SecondaryNav", Model.View.SecondaryNavItems)</td>
+                </tr>
+                @if (!Model.View.IsHomepage)
+                {
+                    <tr>
+                        <th>Breadcrumbs:</th>
+                        <td>@Html.Partial("Breadcrumbs", Model.View.BreadcrumbItems)</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        @RenderBody()
     </div>
-    
-    @RenderBody()
-    
-  
-</div>
 </body>
 </html>

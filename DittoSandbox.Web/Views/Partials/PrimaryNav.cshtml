@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<TreeNode>
 @if (Model.Any())
 {
-    <p style="background-color: #efefef;padding:5px;">
-        @foreach (var item in Model)
+    foreach (var item in Model)
+    {
+        <a href="@item.Url">@item.Name</a>
+        if (item.Id != Model.Last().Id)
         {
-            <a href="@item.Url">@item.Name</a>
-            if (item.Id != Model.Last().Id)
-            {
-                <text> | </text>
-            }
+            <text> | </text>
         }
-    </p>
+    }
 }
