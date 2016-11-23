@@ -20,14 +20,16 @@
             <li>@tag</li>
         }
     </ul>
-    
+    @if (Model.View.Attachment != null)
+    {
+        <p><a href="@Model.View.Attachment">@Model.View.Attachment</a></p>
+    }
+   
     @if (Model.View.PromotedPage != null)
     {
         <a href="@Model.View.PromotedPage.Url">@Model.View.PromotedPage.Title</a>
     }
     
-    @if (Model.View.Attachment != null)
-    {
-        <a href="@Model.View.Attachment">@Model.View.Attachment</a>
-    }
+    <br/> 
+   
 </section>
