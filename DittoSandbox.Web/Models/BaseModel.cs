@@ -18,6 +18,11 @@ namespace DittoSandbox.Web.Models
 
         [DittoCache(CacheDuration = 300)]
         [PrimaryNavigation("homepage", true)]
-        public IEnumerable<TreeNode> NavItems { get; set; } 
+        public IEnumerable<TreeNode> PrimaryNavItems { get; set; }
+
+        [DittoCache(CacheDuration = 300)]
+        [SecondaryNavigation]
+        public IEnumerable<TreeNode> SecondaryNavItems { get; set; }
+
     }
 }

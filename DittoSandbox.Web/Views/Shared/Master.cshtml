@@ -12,11 +12,12 @@
 </head>
 <body>
 <div>
-    @Html.Partial("PrimaryNav", Model.View.NavItems)
+    @Html.Partial("PrimaryNav", Model.View.PrimaryNavItems)
     <h1>@Model.View.Title</h1>
     <p>
-        <b>Url:</b> @Model.View.Url<br/>
-        <b>Created / Published Date:</b> @Model.View.PublishDate.ToString("f")
+        <b>Url:</b> @Model.View.Url<br />
+        <b>Created / Published Date:</b> @Model.View.PublishDate.ToString("f")<br/>
+        @Html.Partial("SecondaryNav", Model.View.SecondaryNavItems)
     </p>
     <hr/>
     @RenderBody()

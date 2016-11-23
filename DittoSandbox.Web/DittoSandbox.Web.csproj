@@ -340,6 +340,7 @@
     <Content Include="Views\ContentPage.cshtml" />
     <Content Include="Views\Partials\PrimaryNav.cshtml" />
     <Content Include="Views\Shared\Master.cshtml" />
+    <Content Include="Views\Partials\SecondaryNav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -390,6 +391,7 @@
     <Compile Include="Models\PagedCollection.cs" />
     <Compile Include="Models\Processors\BaseNewsAttribute.cs" />
     <Compile Include="Models\Processors\Contexts\PaginationContext.cs" />
+    <Compile Include="Models\Processors\SecondaryNavigationAttribute.cs" />
     <Compile Include="Models\Processors\PrimaryNavigationAttribute.cs" />
     <Compile Include="Models\Processors\NewsAttribute.cs" />
     <Compile Include="Models\Processors\PublishDateAttribute.cs" />
