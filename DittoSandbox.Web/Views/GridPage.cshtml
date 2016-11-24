@@ -1,0 +1,10 @@
+﻿@inherits DittoView
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div class="propertyType">
+    <h2>Grid</h2>
+    <p>Not using Ditto yet! (needs bootstrap)</p>
+    @Html.GetGridHtml(Model.Content, "GridZone")
+</div>

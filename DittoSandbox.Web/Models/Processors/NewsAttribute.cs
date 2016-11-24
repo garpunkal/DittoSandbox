@@ -17,8 +17,12 @@ namespace DittoSandbox.Web.Models.Processors
         public string PublishDateAlias { get; set; }
         public int PageSize { get; set; }
 
-        public NewsAttribute(string homepageAlias = "homepage", string newsOverviewAlias = "newsOverview",
-            string newsItemAlias = "newsItem", string publishDateAlias = "publishDate", int pageSize = 10)
+        public NewsAttribute(
+            string homepageAlias = "homepage", 
+            string newsOverviewAlias = "newsOverview",
+            string newsItemAlias = "newsItem", 
+            string publishDateAlias = "publishDate",
+            int pageSize = 10)
         {
             HomepageAlias = homepageAlias;
             NewsOverviewAlias = newsOverviewAlias;

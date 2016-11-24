@@ -346,6 +346,7 @@
     <Content Include="Views\Partials\PageAttributes.cshtml" />
     <Content Include="Views\Partials\Heroes.cshtml" />
     <Content Include="Views\Partials\Hero.cshtml" />
+    <Content Include="Views\GridPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

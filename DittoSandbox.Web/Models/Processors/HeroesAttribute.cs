@@ -17,7 +17,10 @@ namespace DittoSandbox.Web.Models.Processors
         public string HeroesRepositoryAlias { get; set; }
         public string HeroAlias { get; set; }
 
-        public HeroesAttribute(string dataAlias = "dataRepository", string heroesRepositoryAlias = "heroesRepository", string heroAlias = "hero")
+        public HeroesAttribute(
+            string dataAlias = "dataRepository", 
+            string heroesRepositoryAlias = "heroesRepository",
+            string heroAlias = "hero")
         {
             DataAlias = dataAlias;
             HeroesRepositoryAlias = heroesRepositoryAlias;
