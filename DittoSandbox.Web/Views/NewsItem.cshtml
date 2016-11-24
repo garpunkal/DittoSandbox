@@ -5,7 +5,7 @@
 
 <div class="propertyType">
     <h2>Media Picker</h2>
-     <img src="@Model.View.Image.Url?width=300&height=300&mode=crop" alt="@Model.View.Image.Url" />
+    <a href="@Model.View.Image.Url" target="_blank"><img src="@Model.View.Image.Url?width=300&height=300&mode=crop" alt="@Model.View.Image.Url" /></a>
 </div>
 
 <div class="propertyType">
@@ -18,7 +18,7 @@
     <h2>Multi Media Picker</h2>
     @foreach (var image in Model.View.Images)
     {
-        <img src="@image.Url?width=300&height=300&mode=crop" alt="@image.Title" />
+        <a href="@image.Url" target="_blank"><img src="@image.Url?width=300&height=300&mode=crop" alt="@image.Title" /></a>
     }
 </div>
 

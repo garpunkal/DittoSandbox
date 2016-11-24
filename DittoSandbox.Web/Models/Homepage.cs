@@ -11,10 +11,6 @@ namespace DittoSandbox.Web.Models
     {
         public IHtmlString Description { get; set; }
 
-        [UmbracoProperty]
-        [UmbracoPicker]
-        public Image Hero { get; set; }
-
         public RelatedLinks RelatedLinks { get; set; }
 
         [DelimitedString]
