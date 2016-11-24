@@ -11,6 +11,8 @@ namespace DittoSandbox.Web.Models
         public string Url { get; set; }
 
         [UrlTarget]
-        public bool NewWindow { get; set; } 
+        public bool NewWindow { get; set; }
+
+        public string NewWindowAttribute => NewWindow ? " target='_blank'" : string.Empty;
     }
 }

@@ -26,7 +26,7 @@
         <ul>
             @foreach (var link in Model.View.RelatedLinks.ToList())
                 {
-                <li><a href="@link.Link" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Caption</a></li>
+                <li><a href="@link.Link" @link.NewWindowAttribute>@link.Caption</a></li>
             }
         </ul>
     }

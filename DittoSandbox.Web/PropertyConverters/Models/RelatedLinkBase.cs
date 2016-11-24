@@ -18,5 +18,7 @@ namespace DittoSandbox.Web.PropertyConverters.Models
         public bool IsInternal { get; set; }
         [JsonProperty("type")]
         public RelatedLinkType Type { get; set; }
+
+        public string NewWindowAttribute => NewWindow ? " target='_blank'" : string.Empty;
     }
 }

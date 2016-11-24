@@ -29,7 +29,7 @@
         <ul>
             @foreach (var link in Model.View.RelatedInternalPages.ToList())
             {
-                <li><a href="@link.Url" @(link.NewWindow ? " target='_blank'" : string.Empty)>@link.Title</a></li>
+                <li><a href="@link.Url" @link.NewWindowAttribute>@link.Title</a></li>
             }
         </ul>
     }
@@ -40,7 +40,7 @@
     @if (Model.View.PromotedPage != null)
     {
         <ul>
-            <li><a href="@Model.View.PromotedPage.Url" @(Model.View.PromotedPage.NewWindow ? " target='_blank'" : string.Empty)>@Model.View.PromotedPage.Title</a></li>
+            <li><a href="@Model.View.PromotedPage.Url" @Model.View.PromotedPage.NewWindowAttribute>@Model.View.PromotedPage.Title</a></li>
         </ul>
     }
 </div>
