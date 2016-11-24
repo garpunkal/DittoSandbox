@@ -1,0 +1,12 @@
+﻿@model Hero
+<div class="hero">
+    <p>@Model.Title</p>
+    @if (Model.Link != null)
+    {
+        <a href="@Model.Link.Url"><img src="@Model.Image.Url?width=300&height=300&mode=crop" alt="@Model.Title" /></a>
+    }
+    else
+    {
+        <img src="@Model.Image.Url?width=300&height=300&mode=crop" alt="@Model.Title" />
+    }
+</div>

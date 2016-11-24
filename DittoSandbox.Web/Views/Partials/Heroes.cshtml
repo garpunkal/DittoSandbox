@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Hero>
+<div class="heroCollection">
+    @foreach (var hero in Model)
+    {
+        @Html.Partial("Hero", hero)
+    }
+</div>

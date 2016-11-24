@@ -2,6 +2,12 @@
 @{
     Layout = "~/Views/Shared/Master.cshtml";
 }
+
+<div class="propertyType">
+    <h2>Heroes</h2>
+    @Html.Partial("Heroes", Model.View.Heroes)
+</div>
+
 <div class="propertyType">
     <h2>Controller Action Output</h2>
     <p>@Model.View.ControllerAction</p>

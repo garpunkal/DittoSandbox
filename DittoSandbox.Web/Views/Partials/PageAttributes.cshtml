@@ -1,0 +1,28 @@
+﻿@model BaseModel
+<div class="attributes">
+    <table>
+        <tr>
+            <th>ID:</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>Url:</th>
+            <td>@Model.Url</td>
+        </tr>
+        <tr>
+            <th>Date:</th>
+            <td>@Model.PublishDate.ToString("f")</td>
+        </tr>
+        <tr>
+            <th>Secondary Nav:</th>
+            <td>@Html.Partial("SecondaryNav", Model.SecondaryNavItems)</td>
+        </tr>
+        @if (!Model.IsHomepage)
+        {
+            <tr>
+                <th>Breadcrumbs:</th>
+                <td>@Html.Partial("Breadcrumbs", Model.BreadcrumbItems)</td>
+            </tr>
+        }
+    </table>
+</div>

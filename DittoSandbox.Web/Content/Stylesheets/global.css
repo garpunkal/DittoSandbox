@@ -1,0 +1,51 @@
+﻿body {
+	font-family: sans-serif;
+}
+
+div.primaryNavigation {
+	width: 100%;
+	background-color: #efefef;
+	padding: 5px;
+}
+
+div.attributes {
+	width: 90%;
+	border: 2px solid #000;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+	div.attributes table {
+		width: 100%;
+	}
+
+		div.attributes table th {
+			width: 20%;
+			text-align: left;
+			background-color: #efefef;
+		}
+
+div.propertyType {
+	width: 90%;
+	border: 1px solid #333;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+div.newsSnippet {
+	width: 98%;
+	background-color: #efefef;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+div.heroCollection {
+	width: 100%;
+	overflow: hidden;
+}
+
+	div.heroCollection div.hero {
+		float: left;
+		width: 300px;
+		margin: 5px;
+	}

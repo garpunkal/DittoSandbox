@@ -304,6 +304,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Stylesheets\global.css" />
     <Content Include="packages.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="Views\Web.config" />
@@ -342,6 +343,9 @@
     <Content Include="Views\Shared\Master.cshtml" />
     <Content Include="Views\Partials\SecondaryNav.cshtml" />
     <Content Include="Views\Partials\Breadcrumbs.cshtml" />
+    <Content Include="Views\Partials\PageAttributes.cshtml" />
+    <Content Include="Views\Partials\Heroes.cshtml" />
+    <Content Include="Views\Partials\Hero.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -384,6 +388,7 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\PublishedContentExtensions.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\ContentPage.cs" />
     <Compile Include="Models\NewsItem.cs" />
@@ -394,6 +399,7 @@
     <Compile Include="Models\Processors\BaseNewsAttribute.cs" />
     <Compile Include="Models\Processors\Contexts\PaginationContext.cs" />
     <Compile Include="Models\Processors\BreadcrumbAttribute.cs" />
+    <Compile Include="Models\Processors\HeroesAttribute.cs" />
     <Compile Include="Models\Processors\SecondaryNavigationAttribute.cs" />
     <Compile Include="Models\Processors\PrimaryNavigationAttribute.cs" />
     <Compile Include="Models\Processors\NewsAttribute.cs" />
