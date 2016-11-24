@@ -16,7 +16,10 @@ namespace DittoSandbox.Web.Models.Processors
             if (content == null) return Enumerable.Empty<IPublishedContent>();
 
             var homepage = content.AncestorsOrSelf(homepageAlias).First();
-            var newsArchive = homepage.Children.FirstOrDefault(x => x.DocumentTypeAlias == newsOverviewAlias && x.IsVisible());
+
+            var newsArchive = homepage.Children
+                .FirstOrDefault(x => x.DocumentTypeAlias == newsOverviewAlias && x.IsVisible());
+
             if (newsArchive == null) return Enumerable.Empty<IPublishedContent>();
 
             return newsArchive.Children
