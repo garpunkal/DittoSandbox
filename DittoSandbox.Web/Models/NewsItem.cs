@@ -14,8 +14,10 @@ namespace DittoSandbox.Web.Models
         [UmbracoPicker]
         public IEnumerable<Image> Images { get; set; }
 
-        [DittoIgnore]
-        public Image FirstImage => Images.FirstOrDefault();
+        [DittoCache(CacheDuration = 300)]
+        [UmbracoProperty]
+        [UmbracoPicker]
+        public Image Image { get; set; } 
 
         public HtmlString BodyText { get; set; }
         
