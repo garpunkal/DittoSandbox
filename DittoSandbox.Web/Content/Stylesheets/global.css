@@ -37,7 +37,19 @@ div.newsSnippet {
 	background-color: #efefef;
 	margin-bottom: 10px;
 	padding: 5px;
+	overflow: hidden;
 }
+
+	div.newsSnippet div.image {
+		width: 200px;
+		margin-right: 5px;
+		float: left;
+	}
+
+	div.newsSnippet div.content {
+		width: 80%;
+		float: left;
+	}
 
 div.heroCollection {
 	width: 100%;
