@@ -10,7 +10,7 @@ namespace DittoSandbox.Web.Controllers
         public ActionResult Index(RenderModel model)
         {
             var home = model.As<Homepage>();
-            home.ControllerAction = "This could be data from Entity Framework?";
+            home.ControllerAction = "Controller action hijack!";
 
             return CurrentView(home);
         }
