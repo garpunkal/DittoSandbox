@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.0.0\lib\net451\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.0\lib\net451\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.0.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -277,6 +289,10 @@
     <Reference Include="umbraco.editorControls, Version=1.0.6136.27251, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.editorControls.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Forms.Web, Version=4.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\Umbraco.Forms.Web.dll</HintPath>
     </Reference>
     <Reference Include="umbraco.MacroEngines, Version=1.0.6136.27252, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.MacroEngines.dll</HintPath>
@@ -569,35 +585,38 @@
   <ItemGroup>
     <Compile Include="Controllers\HomepageController.cs" />
     <Compile Include="Controllers\NewsOverviewController.cs" />
-    <Compile Include="Extensions\ObjectExtensions.cs" />
-    <Compile Include="Extensions\PublishedContentExtensions.cs" />
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Hero.cs" />
-    <Compile Include="Models\Link.cs" />
-    <Compile Include="Models\ContentPage.cs" />
-    <Compile Include="Models\NewsItem.cs" />
-    <Compile Include="Models\NewsOverview.cs" />
-    <Compile Include="Models\Homepage.cs" />
-    <Compile Include="Models\Image.cs" />
-    <Compile Include="Models\PagedCollection.cs" />
-    <Compile Include="Models\Processors\BaseNewsAttribute.cs" />
-    <Compile Include="Models\Processors\Contexts\PaginationContext.cs" />
-    <Compile Include="Models\Processors\BreadcrumbAttribute.cs" />
-    <Compile Include="Models\Processors\HeroesAttribute.cs" />
-    <Compile Include="Models\Processors\SecondaryNavigationAttribute.cs" />
-    <Compile Include="Models\Processors\PrimaryNavigationAttribute.cs" />
-    <Compile Include="Models\Processors\NewsAttribute.cs" />
-    <Compile Include="Models\Processors\PublishDateAttribute.cs" />
-    <Compile Include="Models\Processors\DelimitedStringAttribute.cs" />
-    <Compile Include="Models\Processors\TitleAttribute.cs" />
-    <Compile Include="Models\Processors\UrlTargetAttribute.cs" />
-    <Compile Include="Models\TreeNode.cs" />
-    <Compile Include="PropertyConverters\RelatedLinksPropertyConverter.cs" />
-    <Compile Include="PropertyConverters\Models\RelatedLink.cs" />
-    <Compile Include="PropertyConverters\Models\RelatedLinkBase.cs" />
-    <Compile Include="PropertyConverters\Models\RelatedLinkData.cs" />
-    <Compile Include="PropertyConverters\Models\RelatedLinks.cs" />
-    <Compile Include="PropertyConverters\Models\RelatedLinkType.cs" />
+    <Compile Include="Logic\Config\GlobalConfig.cs" />
+    <Compile Include="Logic\EventHandlers.cs" />
+    <Compile Include="Logic\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Logic\Extensions\PublishedContentExtensions.cs" />
+    <Compile Include="Logic\Models\BaseModel.cs" />
+    <Compile Include="Logic\Models\Hero.cs" />
+    <Compile Include="Logic\Models\Link.cs" />
+    <Compile Include="Logic\Models\ContentPage.cs" />
+    <Compile Include="Logic\Models\NewsItem.cs" />
+    <Compile Include="Logic\Models\NewsOverview.cs" />
+    <Compile Include="Logic\Models\Homepage.cs" />
+    <Compile Include="Logic\Models\Image.cs" />
+    <Compile Include="Logic\Models\PagedCollection.cs" />
+    <Compile Include="Logic\Models\Processors\BaseNewsAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\Contexts\PaginationContext.cs" />
+    <Compile Include="Logic\Models\Processors\BreadcrumbAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\HeroesAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\SecondaryNavigationAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\PrimaryNavigationAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\NewsAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\PublishDateAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\DelimitedStringAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\TitleAttribute.cs" />
+    <Compile Include="Logic\Models\Processors\UrlTargetAttribute.cs" />
+    <Compile Include="Logic\Models\TreeNode.cs" />
+    <Compile Include="Logic\Modules\ConfigModule.cs" />
+    <Compile Include="Logic\PropertyConverters\RelatedLinksPropertyConverter.cs" />
+    <Compile Include="Logic\PropertyConverters\Models\RelatedLink.cs" />
+    <Compile Include="Logic\PropertyConverters\Models\RelatedLinkBase.cs" />
+    <Compile Include="Logic\PropertyConverters\Models\RelatedLinkData.cs" />
+    <Compile Include="Logic\PropertyConverters\Models\RelatedLinks.cs" />
+    <Compile Include="Logic\PropertyConverters\Models\RelatedLinkType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
