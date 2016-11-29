@@ -88,6 +88,10 @@
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.3.3\lib\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Examine, Version=0.1.70.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Examine.0.1.70.0\lib\Examine.dll</HintPath>
       <Private>True</Private>
@@ -290,9 +294,25 @@
       <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.editorControls.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Umbraco.Forms.Core, Version=4.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.3.3\lib\Umbraco.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Forms.Core.Providers, Version=4.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.3.3\lib\Umbraco.Forms.Core.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Umbraco.Forms.Web, Version=4.3.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Bin\Umbraco.Forms.Web.dll</HintPath>
+      <HintPath>..\packages\UmbracoForms.Core.4.3.3\lib\Umbraco.Forms.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Forms.Web.XmlSerializers, Version=4.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.3.3\lib\Umbraco.Forms.Web.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Licensing, Version=2.0.33.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.3.3\lib\Umbraco.Licensing.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="umbraco.MacroEngines, Version=1.0.6136.27252, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.MacroEngines.dll</HintPath>
