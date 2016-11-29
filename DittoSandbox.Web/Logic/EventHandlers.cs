@@ -36,7 +36,6 @@ namespace DittoSandbox.Web.Logic
 
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
-        
         }
 
         private IContainer RegisterDependencies(ApplicationContext applicationContext)
@@ -67,7 +66,7 @@ namespace DittoSandbox.Web.Logic
             builder.Register(c => applicationContext)
                 .As<ApplicationContext>()
                 .InstancePerRequest();
-            
+
             builder.Register(c => new UmbracoHelper(UmbracoContext.Current))
                 .As<UmbracoHelper>()
                 .InstancePerRequest();
