@@ -10,13 +10,6 @@ namespace DittoSandbox.Web.Logic.Search.Config
     {
         public const string SectionName = "jay.search";
 
-        [ConfigurationProperty("searchIndexer", DefaultValue = "ExternalIndexer")]
-        public string SearchIndexer
-        {
-            get { return (string)this["searchIndexer"]; }
-            set { this["searchIndexer"] = value; }
-        }
-
         [ConfigurationProperty("searchSearcher", DefaultValue = "ExternalSearcher")]
         public string SearchSearcher
         {
