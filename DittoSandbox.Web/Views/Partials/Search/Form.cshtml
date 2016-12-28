@@ -1,0 +1,7 @@
+﻿@model SearchViewModel
+@if (!Model.FormLocationNotNone) { return; }
+
+<form action="" method="GET" class="search-form">
+    <input type="text" name="query" placeholder="@Model.SearchLabel" value="@(Model.SearchTerm)" />
+    <input type="submit" value="@Model.SearchLabel" />
+</form>

@@ -1,0 +1,7 @@
+﻿@model SearchResultViewModel
+@if (Model.Content == null) { return; }
+
+<div class="search-result">
+    <h2><a href="@Model.Content.Url">@Model.Content.Title</a></h2>
+    <p>@SearchHelpers.Highlight(Model.Content.Extract, Model.SearchTerms)</p>
+</div>

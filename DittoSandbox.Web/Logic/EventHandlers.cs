@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using Examine;
 using Umbraco.Core;
 using Umbraco.Forms.Web.Trees;
 using Umbraco.Web;
@@ -37,7 +40,7 @@ namespace DittoSandbox.Web.Logic
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
         }
-
+     
         private IContainer RegisterDependencies(ApplicationContext applicationContext)
         {
             var builder = new ContainerBuilder();

@@ -1,0 +1,36 @@
+﻿@model SearchViewModel
+
+@if (Model.FormLocationTop)
+{
+    @Html.Partial("~/Views/Partials/Search/Form.cshtml", Model)
+}
+
+<div class="search-summary">
+    <p>@Html.FormatHtml(Model.YourSearchForLabel, Model.SearchTerm, Model.TotalResults)</p>
+</div>
+
+<div class="search-result-count">
+    <p>@Html.FormatHtml(Model.ShowingResultsLabel, Model.StartRecord, Model.EndRecord)</p>
+</div>
+
+<div class="search-results">
+    @foreach (var result in Model.PagedResults)
+    {
+        switch (result.IndexType)
+        {
+            case UmbracoExamine.IndexTypes.Content:
+                @Html.Partial("~/Views/Partials/Search/ContentResult.cshtml", result)
+                break;
+            case UmbracoExamine.IndexTypes.Media:
+                @Html.Partial("~/Views/Partials/Search/MediaResult.cshtml", result)
+                break;
+        }
+    }
+</div>
+@Html.Partial("~/Views/Partials/Search/Pager.cshtml", Model)
+
+
+@if (Model.FormLocationBottom)
+{
+    @Html.Partial("~/Views/Partials/Search/Form.cshtml", Model)
+}

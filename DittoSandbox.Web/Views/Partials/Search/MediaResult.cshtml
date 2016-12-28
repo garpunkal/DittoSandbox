@@ -1,0 +1,6 @@
+﻿@model SearchResultViewModel
+@if (Model.Media == null) { return; }
+
+<div class="search-result">
+    <h2><a href="@(Model.Media.Url)">@Model.Media.Title</a></h2>
+</div>
