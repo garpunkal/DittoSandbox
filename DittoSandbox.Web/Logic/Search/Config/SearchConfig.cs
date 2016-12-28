@@ -8,7 +8,7 @@ namespace DittoSandbox.Web.Logic.Search.Config
 {
     public class SearchConfig : ConfigurationSection
     {
-        public const string SectionName = "search";
+        public const string SectionName = "jay.search";
 
         [ConfigurationProperty("searchIndexer", DefaultValue = "ExternalIndexer")]
         public string SearchIndexer
