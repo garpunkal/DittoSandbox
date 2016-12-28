@@ -2,5 +2,14 @@
 @if (Model.Media == null) { return; }
 
 <div class="search-result">
-    <h2><a href="@(Model.Media.Url)">@Model.Media.Title</a></h2>
+    <a href="@Model.Media.Url">
+        @if (Model.Media.IsImage)
+        {
+            <img src="@Model.Media.Url?width=200" alt="@Model.Media.Title"/>
+        }
+        <h2>@Model.Media.Title</h2>
+        <dl>
+            <dt>@Model.ExtensionLabel:</dt><dd>@Model.Media.Extension</dd>
+        </dl>
+    </a>
 </div>

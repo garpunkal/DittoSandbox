@@ -9,6 +9,7 @@ namespace DittoSandbox.Web.Logic.Search
     {
         public class Properties
         {
+            public const string __IndexType = "__IndexType";
             public const string UmbracoNaviHide = "umbracoNaviHide";
             public const string UmbracoFile = "umbracoFile";
             public const string UmbracoFileName = "umbracoFileName";
@@ -16,8 +17,6 @@ namespace DittoSandbox.Web.Logic.Search
             public const string SearchPath = "searchPath";
             public const string Contents = "contents";
             public const string Id = "id";
-            public const string __IndexType = "__IndexType";
-
             public const string Extract = "extract";
             public const string BodyText = "bodyText";
             public const string Name = "name";
@@ -33,7 +32,13 @@ namespace DittoSandbox.Web.Logic.Search
                 public const string NextLabel = "Search.NextLabel";
                 public const string ShowingResultsLabel = "Search.ShowingResultsLabel";
                 public const string YouSearchedForLabel = "Search.YouSearchedForLabel";
+                public const string ExtensionLabel = "Search.Extension";
             }
+        }
+
+        public class DocumentTypes
+        {
+            public const string Image = "Image"; 
         }
     }
 }
