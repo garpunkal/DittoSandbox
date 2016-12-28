@@ -14,7 +14,6 @@ namespace DittoSandbox.Web.Logic.Search
             Media
         }
 
-
         public enum SearchFormLocation
         {
             None,

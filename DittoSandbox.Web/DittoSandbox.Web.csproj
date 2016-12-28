@@ -3151,6 +3151,7 @@
     <Content Include="Views\Partials\Search\MediaResult.cshtml" />
     <Content Include="Views\Partials\Search\Results.cshtml" />
     <Content Include="Views\Partials\Search\NoResults.cshtml" />
+    <Content Include="Views\Partials\Search\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

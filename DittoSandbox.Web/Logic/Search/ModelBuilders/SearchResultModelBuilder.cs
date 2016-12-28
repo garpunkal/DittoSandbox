@@ -8,6 +8,7 @@ using DittoSandbox.Web.Logic.Search.Models;
 using Examine;
 using Examine.SearchCriteria;
 using Our.Umbraco.Ditto;
+using Umbraco.Core.Models;
 using Umbraco.Web;
 
 namespace DittoSandbox.Web.Logic.Search.ModelBuilders
@@ -30,12 +31,12 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
 
             // Set search path
             var contentPathFilter = model.RootContentNodeId > 0
-                ? $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Content} +searchPath:{model.RootContentNodeId} -template:0"
-                : $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Content} -template:0";
+                ? $"{StaticValues.Properties.IndexType}:{UmbracoExamine.IndexTypes.Content} +searchPath:{model.RootContentNodeId} -template:0"
+                : $"{StaticValues.Properties.IndexType}:{UmbracoExamine.IndexTypes.Content} -template:0";
 
             var mediaPathFilter = model.RootMediaNodeId > 0
-                ? $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} +searchPath:{model.RootMediaNodeId} -__NodeTypeAlias:folder"
-                : $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} -__NodeTypeAlias:folder";
+                ? $"{StaticValues.Properties.IndexType}:{UmbracoExamine.IndexTypes.Media} +searchPath:{model.RootMediaNodeId} -__NodeTypeAlias:folder"
+                : $"{StaticValues.Properties.IndexType}:{UmbracoExamine.IndexTypes.Media} -__NodeTypeAlias:folder";
 
             switch (model.IndexType.ToString().ToLower())
             {
@@ -74,25 +75,24 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
 
             return query;
         }
-
-      
-        public SearchResultViewModel BuildViewModels(SearchResult result, SearchViewModel model)
+        
+        public SearchResultViewModel BuildViewModel(SearchResult result, IEnumerable<string> searchTerms)
         {
             var viewModel = new SearchResultViewModel
             {
-                IndexType = result?.Fields[StaticValues.Properties.__IndexType],
-                SearchTerms = model?.SearchTerms
+                IndexType = result?.Fields[StaticValues.Properties.IndexType],
+                SearchTerms = searchTerms
             };
 
             switch (viewModel.IndexType)
             {
                 case UmbracoExamine.IndexTypes.Content:
-                    var content = _helper.TypedContent(result?.Fields[StaticValues.Properties.Id]);
+                    IPublishedContent content = _helper.TypedContent(result?.Fields[StaticValues.Properties.Id]);
                     viewModel.Content = content?.As<Link>();
                     break;
 
                 case UmbracoExamine.IndexTypes.Media:
-                    var media = _helper.TypedMedia(result?.Fields[StaticValues.Properties.Id]);
+                    IPublishedContent media = _helper.TypedMedia(result?.Fields[StaticValues.Properties.Id]);
                     viewModel.Media = media?.As<Image>();
                     break;
             }

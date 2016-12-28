@@ -9,10 +9,11 @@ namespace DittoSandbox.Web.Logic.Search
     {
         public class Properties
         {
-            public const string __IndexType = "__IndexType";
+            public const string IndexType = "__IndexType";
             public const string UmbracoNaviHide = "umbracoNaviHide";
             public const string UmbracoFile = "umbracoFile";
             public const string UmbracoFileName = "umbracoFileName";
+            public const string UmbracoExtension = "umbracoExtension";
             public const string Path = "path";
             public const string SearchPath = "searchPath";
             public const string Contents = "contents";

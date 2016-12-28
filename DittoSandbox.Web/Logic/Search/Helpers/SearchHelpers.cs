@@ -15,7 +15,6 @@ namespace DittoSandbox.Web.Logic.Search.Helpers
 {
     public class SearchHelpers
     {
-        // Splits a string on space, except where enclosed in quotes
         public static IEnumerable<string> Tokenize(string input)
         {
             return Regex.Matches(input, @"[\""].+?[\""]|[^ ]+")
@@ -24,19 +23,20 @@ namespace DittoSandbox.Web.Logic.Search.Helpers
                 .ToList();
         }
 
-        // Highlights all occurances of the search terms in a body of text
         public static IHtmlString Highlight(IHtmlString input, IEnumerable<string> searchTerms)
         {
             return Highlight(input.ToString(), searchTerms);
         }
 
-        // Highlights all occurances of the search terms in a body of text
-        public static IHtmlString Highlight(string input, IEnumerable<string> searchTerms)
+        public static IHtmlString Highlight(string input, IEnumerable<string> searchTerms, string replacement = @"<strong>$0</strong>")
         {
+            if (string.IsNullOrEmpty(input))
+                return null; 
+
             input = HttpUtility.HtmlDecode(input);
 
-            foreach (var searchTerm in searchTerms)
-                input = Regex.Replace(input, Regex.Escape(searchTerm), @"<strong>$0</strong>", RegexOptions.IgnoreCase);
+            foreach (string searchTerm in searchTerms)
+                input = Regex.Replace(input, Regex.Escape(searchTerm), replacement, RegexOptions.IgnoreCase);
 
             return new HtmlString(input);
         }
@@ -46,7 +46,7 @@ namespace DittoSandbox.Web.Logic.Search.Helpers
             if (string.IsNullOrEmpty(text)) return null;
 
             TEnum r;
-            if (Enum.TryParse<TEnum>(text, true, out r))
+            if (Enum.TryParse(text, true, out r))
                 return r;
             
             return null;

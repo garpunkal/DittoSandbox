@@ -4,20 +4,5 @@
 }
 
 <div class="propertyType">
-    @if (Model.View.HasSearchTerm)
-    {
-        if (Model.View.PagedResults.Any())
-        {
-            @Html.Partial("~/Views/Partials/Search/Results.cshtml", Model.View)
-        }
-        else
-        {
-            @Html.Partial("~/Views/Partials/Search/Form.cshtml", Model.View)
-            @Html.Partial("~/Views/Partials/Search/NoResults.cshtml", Model.View)
-        }
-    }
-    else
-    {
-        @Html.Partial("~/Views/Partials/Search/Form.cshtml", Model.View)
-    }
+   @Html.Partial("~/Views/Partials/Search/Search.cshtml")
 </div>

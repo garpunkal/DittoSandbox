@@ -12,7 +12,6 @@ namespace DittoSandbox.Web.Logic.Search.Extensions
 {
     public static class SearchExtensions
     {
-        // Cleanse the search term
         public static string CleanseSearchTerm(this UmbracoHelper helper, string input)
         {
             return helper.StripHtml(input).ToString();

@@ -23,7 +23,7 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
             _config = config;
         }
         
-        public SearchViewModel BuildViewModels(SearchRequestModel request, int? topAncestorId)
+        public SearchViewModel BuildViewModel(SearchRequestModel request, int? topAncestorId)
         {
             var model = new SearchViewModel
             {

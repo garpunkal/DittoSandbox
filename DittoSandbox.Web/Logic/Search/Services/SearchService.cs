@@ -41,7 +41,7 @@ namespace DittoSandbox.Web.Logic.Search.Services
 
             // complete model
             model.AllResults = results
-                .Select(x => modelBuilder.BuildViewModels(x, model))
+                .Select(x => modelBuilder.BuildViewModel(x, model.SearchTerms))
                 .ToList();
 
             model.TotalResults = results.Count;
@@ -65,8 +65,8 @@ namespace DittoSandbox.Web.Logic.Search.Services
                 .Where(x => (
                                 !_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) || (_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) && _helper.MemberHasAccess(x.Fields[StaticValues.Properties.Path]))) &&
                             (
-                                (x.Fields[StaticValues.Properties.__IndexType] == UmbracoExamine.IndexTypes.Content && _helper.TypedContent(int.Parse(x.Fields[StaticValues.Properties.Id])) != null) ||
-                                (x.Fields[StaticValues.Properties.__IndexType] == UmbracoExamine.IndexTypes.Media && _helper.TypedMedia(int.Parse(x.Fields[StaticValues.Properties.Id])) != null)
+                                (x.Fields[StaticValues.Properties.IndexType] == UmbracoExamine.IndexTypes.Content && _helper.TypedContent(int.Parse(x.Fields[StaticValues.Properties.Id])) != null) ||
+                                (x.Fields[StaticValues.Properties.IndexType] == UmbracoExamine.IndexTypes.Media && _helper.TypedMedia(int.Parse(x.Fields[StaticValues.Properties.Id])) != null)
                             ))
                 .OrderByDescending(x => x.Score)
                 .ToList();
