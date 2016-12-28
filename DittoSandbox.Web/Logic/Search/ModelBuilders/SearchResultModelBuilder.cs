@@ -34,8 +34,8 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 : $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Content} -template:0";
 
             var mediaPathFilter = model.RootMediaNodeId > 0
-                ? $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} +searchPath:{model.RootMediaNodeId}"
-                : $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media}";
+                ? $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} +searchPath:{model.RootMediaNodeId} -__NodeTypeAlias:folder"
+                : $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} -__NodeTypeAlias:folder";
 
             switch (model.IndexType)
             {
