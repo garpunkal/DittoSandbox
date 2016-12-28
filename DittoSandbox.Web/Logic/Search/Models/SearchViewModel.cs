@@ -34,6 +34,9 @@ namespace DittoSandbox.Web.Logic.Search.Models
         public int StartRecord => ((CurrentPage - 1) * PageSize) + 1;
         public int EndRecord => Math.Min(TotalResults, (StartRecord - 1) + PageSize);
         public bool HasSearchTerm => !string.IsNullOrWhiteSpace(SearchTerm);
+
+        public bool HasResults => PagedResults?.Any() ?? false;
+
         public bool FormLocationTop => SearchFormLocation == Enums.SearchFormLocation.Top || SearchFormLocation == Enums.SearchFormLocation.Both;
         public bool FormLocationBottom => SearchFormLocation == Enums.SearchFormLocation.Bottom || SearchFormLocation == Enums.SearchFormLocation.Both;
         public bool FormLocationNotNone => SearchFormLocation != Enums.SearchFormLocation.None;

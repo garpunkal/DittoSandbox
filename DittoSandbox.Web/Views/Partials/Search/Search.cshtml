@@ -1,7 +1,7 @@
 ﻿@inherits DittoView<SearchViewModel>
 @if (Model.View.HasSearchTerm)
 {
-    if (Model.View.PagedResults.Any())
+    if (Model.View.HasResults)
     {
         @Html.Partial("~/Views/Partials/Search/Results.cshtml", Model.View)
     }
