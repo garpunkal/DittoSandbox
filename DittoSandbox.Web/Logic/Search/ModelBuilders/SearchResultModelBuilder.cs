@@ -65,14 +65,12 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
 
             // Rank content based on positon of search terms in fields
             for (var i = 0; i < model.SearchFields.Count; i++)
-            {
                 foreach (string term in model.SearchTerms)
                 {
                     //check if phrase or keyword
                     bool isPhraseTerm = term.IndexOf(' ') != -1; //contains space - is phrase
                     query.AppendFormat(!isPhraseTerm ? "{0}:{1}*^{2} " : @"{0}:""{1}""^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
                 }
-            }
 
             return query;
         }
