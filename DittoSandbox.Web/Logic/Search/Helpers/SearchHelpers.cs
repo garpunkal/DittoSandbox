@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Umbraco.Web;
 using Umbraco.Web.Models;
 
@@ -44,5 +46,6 @@ namespace DittoSandbox.Web.Logic.Search.Helpers
             Enums.SearchFormLocation outValue;
             return Enum.TryParse(value, true, out outValue) ? outValue : Enums.SearchFormLocation.Bottom;
         }
+        
     }
 }

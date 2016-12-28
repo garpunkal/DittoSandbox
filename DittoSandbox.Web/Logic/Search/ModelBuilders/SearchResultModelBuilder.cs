@@ -88,19 +88,22 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
       
         public SearchResultViewModel BuildViewModels(SearchResult result, SearchViewModel model)
         {
-            var viewModel = new SearchResultViewModel { IndexType = result.Fields[StaticValues.Properties.__IndexType] };
+            var viewModel = new SearchResultViewModel
+            {
+                IndexType = result?.Fields[StaticValues.Properties.__IndexType],
+                SearchTerms = model?.SearchTerms
+            };
+
             switch (viewModel.IndexType)
             {
                 case UmbracoExamine.IndexTypes.Content:
-                    var content = _helper.TypedContent(result.Fields[StaticValues.Properties.Id]);
+                    var content = _helper.TypedContent(result?.Fields[StaticValues.Properties.Id]);
                     viewModel.Content = content?.As<Link>();
-                    viewModel.SearchTerms = model.SearchTerms;
                     break;
 
                 case UmbracoExamine.IndexTypes.Media:
-                    var media = _helper.TypedMedia(result.Fields[StaticValues.Properties.Id]);
+                    var media = _helper.TypedMedia(result?.Fields[StaticValues.Properties.Id]);
                     viewModel.Media = media?.As<Image>();
-                    viewModel.SearchTerms = model.SearchTerms;
                     break;
             }
             return viewModel;
