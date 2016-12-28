@@ -29,18 +29,15 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
             {
                 SearchTerm = request.Query != null ? _helper.CleanseSearchTerm(request.Query.ToLower(CultureInfo.InvariantCulture)) : string.Empty,
                 CurrentPage = request.Page,
-                PageSize = request.PageSize != 0 ? request.PageSize : _config.PageSize,
-                RootContentNodeId = request.RootContentNodeId,
-                RootMediaNodeId = request.RootMediaNodeId,
-                IndexType = !string.IsNullOrEmpty(request.IndexType) ? request.IndexType.ToLower(CultureInfo.InvariantCulture) : string.Empty,
-                SearchFields = request.SearchFields?.Any() ?? false ? request.SearchFields : _config.SearchFields.SplitToList(),
-                HideFromSearchField = request.HideFromSearchField,
-                SearchFormLocation = SearchHelpers.GetFormLocation(request.FormLocation)
+                PageSize = _config.PageSize,
+                RootContentNodeId = _config.RootContentNodeId,
+                RootMediaNodeId = _config.RootMediaNodeId,
+                HideFromSearchField = _config.HideFromSearchField,
+                SearchFields = _config.SearchFields.SplitToList(),
+                IndexType = SearchHelpers.EnumTryParse<Enums.IndexTypes>(_config.IndexType) ?? Enums.IndexTypes.Both,
+                SearchFormLocation = SearchHelpers.EnumTryParse<Enums.SearchFormLocation>(_config.FormLocation) ?? Enums.SearchFormLocation.Bottom
             };
-
-            if (model.IndexType != UmbracoExamine.IndexTypes.Content && model.IndexType != UmbracoExamine.IndexTypes.Media)
-                model.IndexType = string.Empty;
-
+            
             if (model.RootContentNodeId <= 0 && topAncestorId.HasValue)
                 model.RootContentNodeId = topAncestorId.Value;
 

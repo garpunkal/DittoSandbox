@@ -41,11 +41,15 @@ namespace DittoSandbox.Web.Logic.Search.Helpers
             return new HtmlString(input);
         }
 
-        public static Enums.SearchFormLocation GetFormLocation(string value)
+        public static TEnum? EnumTryParse<TEnum>(string text) where TEnum : struct
         {
-            Enums.SearchFormLocation outValue;
-            return Enum.TryParse(value, true, out outValue) ? outValue : Enums.SearchFormLocation.Bottom;
+            if (string.IsNullOrEmpty(text)) return null;
+
+            TEnum r;
+            if (Enum.TryParse<TEnum>(text, true, out r))
+                return r;
+            
+            return null;
         }
-        
     }
 }

@@ -62,12 +62,13 @@ namespace DittoSandbox.Web.Logic.Search.Services
             ISearchCriteria criteria2 = criteria.RawQuery(query.ToString());
 
             var results = searcher.Search(criteria2)
-             .Where(x => (
-                !_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) || (_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) && _helper.MemberHasAccess(x.Fields[StaticValues.Properties.Path]))) &&
-                (
-                    (x.Fields[StaticValues.Properties.__IndexType] == UmbracoExamine.IndexTypes.Content && _helper.TypedContent(int.Parse(x.Fields[StaticValues.Properties.Id])) != null) ||
-                    (x.Fields[StaticValues.Properties.__IndexType] == UmbracoExamine.IndexTypes.Media && _helper.TypedMedia(int.Parse(x.Fields[StaticValues.Properties.Id])) != null)
-                ))
+                .Where(x => (
+                                !_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) || (_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) && _helper.MemberHasAccess(x.Fields[StaticValues.Properties.Path]))) &&
+                            (
+                                (x.Fields[StaticValues.Properties.__IndexType] == UmbracoExamine.IndexTypes.Content && _helper.TypedContent(int.Parse(x.Fields[StaticValues.Properties.Id])) != null) ||
+                                (x.Fields[StaticValues.Properties.__IndexType] == UmbracoExamine.IndexTypes.Media && _helper.TypedMedia(int.Parse(x.Fields[StaticValues.Properties.Id])) != null)
+                            ))
+                .OrderByDescending(x => x.Score)
                 .ToList();
 
             return results;

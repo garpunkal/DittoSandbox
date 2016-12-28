@@ -7,6 +7,14 @@ namespace DittoSandbox.Web.Logic.Search
 {
     public class Enums
     {
+        public enum IndexTypes
+        {
+            Both, 
+            Content, 
+            Media
+        }
+
+
         public enum SearchFormLocation
         {
             None,

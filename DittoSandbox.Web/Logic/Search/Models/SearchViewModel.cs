@@ -16,7 +16,7 @@ namespace DittoSandbox.Web.Logic.Search.Models
         // Options
         public int RootContentNodeId { get; set; }
         public int RootMediaNodeId { get; set; }
-        public string IndexType { get; set; }
+        public Enums.IndexTypes IndexType { get; set; }
         public IList<string> SearchFields { get; set; }
         public IList<string> PreviewFields { get; set; }
         public int PageSize { get; set; }

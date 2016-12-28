@@ -37,7 +37,7 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 ? $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} +searchPath:{model.RootMediaNodeId} -__NodeTypeAlias:folder"
                 : $"{StaticValues.Properties.__IndexType}:{UmbracoExamine.IndexTypes.Media} -__NodeTypeAlias:folder";
 
-            switch (model.IndexType)
+            switch (model.IndexType.ToString().ToLower())
             {
                 case UmbracoExamine.IndexTypes.Content:
                     query.AppendFormat("+({0}) ", contentPathFilter);
@@ -58,11 +58,7 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 {
                     //check if phrase or keyword
                     bool isPhraseTerm = term.IndexOf(' ') != -1; //contains space - is phrase
-                    if (!isPhraseTerm)
-                        groupedOr.AppendFormat("{0}:{1}* ", searchField, term);
-                    else
-                        //lucene phrase searches should be enclosed in quotes and don't support wildcard
-                        groupedOr.AppendFormat(@"{0}:""{1}"" ", searchField, term);
+                    groupedOr.AppendFormat(!isPhraseTerm ? "{0}:{1}* " : @"{0}:""{1}"" ", searchField, term);
                 }
                 query.Append("+(" + groupedOr + ") ");
             }
@@ -74,11 +70,7 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 {
                     //check if phrase or keyword
                     bool isPhraseTerm = term.IndexOf(' ') != -1; //contains space - is phrase
-                    if (!isPhraseTerm)
-                        query.AppendFormat("{0}:{1}*^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
-                    else
-                        //lucene phrase searches should be enclosed in quotes and don't support wildcard
-                        query.AppendFormat(@"{0}:""{1}""^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
+                    query.AppendFormat(!isPhraseTerm ? "{0}:{1}*^{2} " : @"{0}:""{1}""^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
                 }
             }
 

@@ -30,5 +30,41 @@ namespace DittoSandbox.Web.Logic.Search.Config
             get { return (int)this["pageSize"]; }
             set { this["pageSize"] = value; }
         }
+
+        [ConfigurationProperty("rootContentNodeId", DefaultValue = -1)]
+        public int RootContentNodeId
+        {
+            get { return (int)this["rootContentNodeId"]; }
+            set { this["rootContentNodeId"] = value; }
+        }
+
+        [ConfigurationProperty("rootMediaNodeId", DefaultValue = -1)]
+        public int RootMediaNodeId
+        {
+            get { return (int)this["rootMediaNodeId"]; }
+            set { this["rootMediaNodeId"] = value; }
+        }
+
+
+        [ConfigurationProperty("indexType", DefaultValue = "Both")]
+        public string IndexType
+        {
+            get { return (string)this["indexType"]; }
+            set { this["indexType"] = value; }
+        }
+
+        [ConfigurationProperty("formLocation", DefaultValue = "Bottom")]
+        public string FormLocation
+        {
+            get { return (string)this["formLocation"]; }
+            set { this["formLocation"] = value; }
+        }
+        
+        [ConfigurationProperty("hideFromSearchField", DefaultValue = "umbracoNaviHide")]
+        public string HideFromSearchField
+        {
+            get { return (string)this["hideFromSearchField"]; }
+            set { this["hideFromSearchField"] = value; }
+        }
     }
 }

@@ -33,8 +33,8 @@ namespace DittoSandbox.Web.Logic.Search.Controllers
         public ActionResult Index(RenderModel model, [QueryString] SearchRequestModel request)
         {
             var searchService = _searchService();
-            var searchFilterBuilder = _searchModelBuilder(); 
-
+            var searchFilterBuilder = _searchModelBuilder();
+            
             var requestModel = searchFilterBuilder.BuildViewModels(request, model?.Content?.AncestorOrSelf(1)?.Id);
 
             return CurrentView(searchService.Search(requestModel));
