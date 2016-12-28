@@ -15,6 +15,9 @@ Some sources:
 **Umbraco Core Property Value Converters**: https://github.com/Jeavon/Umbraco-Core-Property-Value-Converters/
 - I extract the RelatedLinks code into the sandbox to demo the functionality.
 
+**eZSearch**: https://github.com/umco/umbraco-ezsearch
+- I've forked the ezSearch code and created a strongly typed framework around Ditto objects. I've tried to remove the code from the single razor into services and modelbuilders. 
+
 
 **Useful documentation links**: 
 
