@@ -57,11 +57,7 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
             return viewModel;
         }
 
-        private string AddHiddenSearchField(SearchViewModel model)
-        {
-            // add hidden search field
-            return $"-{model.HideFromSearchField}:1 ";
-        }
+        private string AddHiddenSearchField(SearchViewModel model) => $"-{model.HideFromSearchField}:1 ";
 
         private string SetPathFilters(SearchViewModel model)
         {
