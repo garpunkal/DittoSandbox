@@ -34,9 +34,9 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 RootMediaNodeId = _config.RootMediaNodeId,
                 HideFromSearchField = _config.HideFromSearchField,
                 SearchFields = _config.SearchFields.SplitToList(),
+                FuzzyValue = decimal.Parse(_config.FuzzySearch),
                 IndexType = SearchHelpers.EnumTryParse<Enums.IndexTypes>(_config.IndexType) ?? Enums.IndexTypes.Both,
                 SearchFormLocation = SearchHelpers.EnumTryParse<Enums.SearchFormLocation>(_config.FormLocation) ?? Enums.SearchFormLocation.Bottom,
-                FuzzyValue = decimal.Parse(_config.FuzzySearch),
             };
             
             if (model.RootContentNodeId <= 0 && topAncestorId.HasValue)

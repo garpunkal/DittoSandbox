@@ -44,8 +44,7 @@ namespace DittoSandbox.Web.Logic.Search.Config
             get { return (int)this["rootMediaNodeId"]; }
             set { this["rootMediaNodeId"] = value; }
         }
-
-
+        
         [ConfigurationProperty("indexType", DefaultValue = "Both")]
         public string IndexType
         {

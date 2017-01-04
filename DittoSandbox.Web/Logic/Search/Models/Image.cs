@@ -5,7 +5,6 @@ namespace DittoSandbox.Web.Logic.Search.Models
 {
     public class Image : Link
     {
-
         [UmbracoProperty(StaticValues.Properties.UmbracoExtension)]
         public string Extension { get; set; }
 

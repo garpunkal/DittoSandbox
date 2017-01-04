@@ -7,6 +7,7 @@ using DittoSandbox.Web.Logic.Search.Config;
 using DittoSandbox.Web.Logic.Search.ModelBuilders;
 using DittoSandbox.Web.Logic.Search.Models;
 using Examine;
+using Examine.Providers;
 using Examine.SearchCriteria;
 using Umbraco.Core.Logging;
 using Umbraco.Web;
@@ -56,14 +57,13 @@ namespace DittoSandbox.Web.Logic.Search.Services
 
         public List<SearchResult> PerformSearch(StringBuilder query, SearchViewModel model)
         {
-            var searcher = ExamineManager.Instance.SearchProviderCollection[_config.SearchSearcher];
-            var criteria = searcher.CreateSearchCriteria();
-
+            BaseSearchProvider searcher = ExamineManager.Instance.SearchProviderCollection[_config.SearchSearcher];
+            ISearchCriteria criteria = searcher.CreateSearchCriteria();
             ISearchCriteria criteria2 = criteria.RawQuery(query.ToString());
 
-            var results = searcher.Search(criteria2)
-                .Where(x => (
-                                !_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) || (_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) && _helper.MemberHasAccess(x.Fields[StaticValues.Properties.Path]))) &&
+            var results = searcher
+                .Search(criteria2)
+                .Where(x => (!_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) || (_helper.IsProtected(x.Fields[StaticValues.Properties.Path]) && _helper.MemberHasAccess(x.Fields[StaticValues.Properties.Path]))) &&
                             (
                                 (x.Fields[StaticValues.Properties.IndexType] == UmbracoExamine.IndexTypes.Content && _helper.TypedContent(int.Parse(x.Fields[StaticValues.Properties.Id])) != null) ||
                                 (x.Fields[StaticValues.Properties.IndexType] == UmbracoExamine.IndexTypes.Media && _helper.TypedMedia(int.Parse(x.Fields[StaticValues.Properties.Id])) != null)
