@@ -66,5 +66,12 @@ namespace DittoSandbox.Web.Logic.Search.Config
             get { return (string)this["hideFromSearchField"]; }
             set { this["hideFromSearchField"] = value; }
         }
+
+        [ConfigurationProperty("fuzzySearch", DefaultValue = "0")]
+        public string FuzzySearch
+        {
+            get { return (string)this["fuzzySearch"]; }
+            set { this["fuzzySearch"] = value; }
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace DittoSandbox.Web.Logic.Search.Models
         public int PageSize { get; set; }
         public string HideFromSearchField { get; set; }
         public Enums.SearchFormLocation SearchFormLocation { get; set; }
+        public decimal FuzzyValue { get; set; }
 
         // Results
         public int TotalResults { get; set; }
@@ -40,6 +41,8 @@ namespace DittoSandbox.Web.Logic.Search.Models
         public bool FormLocationTop => SearchFormLocation == Enums.SearchFormLocation.Top || SearchFormLocation == Enums.SearchFormLocation.Both;
         public bool FormLocationBottom => SearchFormLocation == Enums.SearchFormLocation.Bottom || SearchFormLocation == Enums.SearchFormLocation.Both;
         public bool FormLocationNotNone => SearchFormLocation != Enums.SearchFormLocation.None;
+
+        public bool IsFuzzySearch => FuzzyValue > 0;
 
         // Dictionary Labels
         [UmbracoDictionary(StaticValues.Dictionary.Search.NoResultsLabel)]

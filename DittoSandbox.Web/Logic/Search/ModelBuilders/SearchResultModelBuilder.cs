@@ -16,7 +16,7 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
     public class SearchResultModelBuilder
     {
         private readonly UmbracoHelper _helper;
-
+        
         public SearchResultModelBuilder()
         {
             _helper = new UmbracoHelper(UmbracoContext.Current);
@@ -59,7 +59,21 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 {
                     //check if phrase or keyword
                     bool isPhraseTerm = term.IndexOf(' ') != -1; //contains space - is phrase
-                    groupedOr.AppendFormat(!isPhraseTerm ? "{0}:{1}* " : @"{0}:""{1}"" ", searchField, term);
+                    if (isPhraseTerm)
+                    {
+                        if (model.IsFuzzySearch)
+                            groupedOr.Append($@"{searchField}:""{term}"" OR {searchField}:""{term}""~{model.FuzzyValue} ");
+                        else
+                            groupedOr.Append($@"{searchField}:""{term}"" ");
+                    }
+                    else
+                    {
+                        if (model.IsFuzzySearch)
+                            groupedOr.Append($"{searchField}:{term}* OR {searchField}:{term}~{model.FuzzyValue} ");
+                        else
+                            groupedOr.Append($"{searchField}:{term}* ");
+                    }
+
                 }
                 query.Append("+(" + groupedOr + ") ");
             }
@@ -70,7 +84,20 @@ namespace DittoSandbox.Web.Logic.Search.ModelBuilders
                 {
                     //check if phrase or keyword
                     bool isPhraseTerm = term.IndexOf(' ') != -1; //contains space - is phrase
-                    query.AppendFormat(!isPhraseTerm ? "{0}:{1}*^{2} " : @"{0}:""{1}""^{2} ", model.SearchFields[i], term, model.SearchFields.Count - i);
+                    if (isPhraseTerm)
+                    {
+                        if (model.IsFuzzySearch)
+                            query.Append($@"{model.SearchFields[i]}:""{term}""^{model.SearchFields.Count - i} OR {model.SearchFields[i]}:""{term}""~{model.FuzzyValue} ");
+                        else
+                            query.Append($@"{model.SearchFields[i]}:""{term}""^{model.SearchFields.Count - i} ");
+                    }
+                    else
+                    {
+                        if (model.IsFuzzySearch)
+                            query.Append($"{model.SearchFields[i]}:{term}*^{model.SearchFields.Count - i} OR {model.SearchFields[i]}:{term}~{model.FuzzyValue} ");
+                        else
+                            query.Append($"{model.SearchFields[i]}:{term}*^{model.SearchFields.Count - i} ");
+                    }
                 }
 
             return query;
