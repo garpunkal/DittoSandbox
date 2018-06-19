@@ -3266,7 +3266,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>44244</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/DittoSandbox.Web</IISUrl>
+          <IISUrl>https://dittosandbox.web.local</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
